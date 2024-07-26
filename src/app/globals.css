@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.tooltip {
+  @apply invisible absolute sm:right-[192px] right-[225px] text-xs flex items-center transition-all ease-linear delay-[90];
+}
+.tooltip2 {
+  @apply invisible absolute flex items-center transition-all ease-linear delay-[70];
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50 bg-slate-700 text-white/80 opacity-100 rounded-lg px-2 py-1
+}
+.has-tooltip:hover .tooltip2 {
+  @apply visible z-50 absolute bg-slate-700 opacity-100 rotate-45 w-2 h-2 sm:right-[190px] right-[221px]
+}
